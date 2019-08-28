@@ -1,0 +1,26 @@
+﻿@model  IList<Veiculo>
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+    <mensagem msg =@TempData["msg"]></mensagem>
+    
+    <table class="table">
+        <tr>
+            <th>Modelo</th>
+            <th>Peso</th>
+            <th>Data</th>
+            <th>Combustivel</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Modelo</td>
+                <td>@item.Peso</td>
+                <td>@item.DataFabricacao</td>
+                <td>@item.Combustivel</td>
+            </tr>
+        }
+    </table>
