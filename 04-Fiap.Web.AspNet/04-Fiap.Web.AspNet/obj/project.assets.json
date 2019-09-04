@@ -12940,11 +12940,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Enterprise\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet.csproj",
+      "projectUniqueName": "D:\\Enterprise\\Enterprise-2-Semestre\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet.csproj",
       "projectName": "04-Fiap.Web.AspNet",
-      "projectPath": "D:\\Enterprise\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet.csproj",
+      "projectPath": "D:\\Enterprise\\Enterprise-2-Semestre\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet.csproj",
       "packagesPath": "C:\\Users\\logonrmlocal\\.nuget\\packages\\",
-      "outputPath": "D:\\Enterprise\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet\\obj\\",
+      "outputPath": "D:\\Enterprise\\Enterprise-2-Semestre\\04-Fiap.Web.AspNet\\04-Fiap.Web.AspNet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

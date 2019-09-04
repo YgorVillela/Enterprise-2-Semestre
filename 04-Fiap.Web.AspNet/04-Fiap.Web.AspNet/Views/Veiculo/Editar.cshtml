@@ -1,0 +1,14 @@
+﻿@model Veiculo
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<form asp-controller="veiculo" asp-action="editar">
+    <input asp-for="Codigo" />
+    
+    <partial name="_Formulario"/>
+
+    <botao texto="Editar"/>
+</form>

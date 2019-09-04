@@ -12,6 +12,8 @@ namespace _04_Fiap.Web.AspNet.Persistence
 
         public DbSet<Veiculo> Veiculos { get; set; }
 
+        public DbSet<Proprietario> Proprietario { get; set; }
+
         //ctor tab + tab
         public LocadoraContext(DbContextOptions opts):base(opts)
         {

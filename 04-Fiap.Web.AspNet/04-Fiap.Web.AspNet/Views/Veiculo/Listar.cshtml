@@ -1,26 +1,62 @@
-﻿@model  IList<Veiculo>
+﻿@model IList<Veiculo>
 @{
     ViewData["Title"] = "Listar";
 }
 
 <h1>Listar</h1>
 
-    <mensagem msg =@TempData["msg"]></mensagem>
-    
-    <table class="table">
+<mensagem msg=@TempData["msg"]></mensagem>
+
+<table class="table">
+    <tr>
+        <th>Modelo</th>
+        <th>Peso</th>
+        <th>Data</th>
+        <th>Combustivel</th>
+    </tr>
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>Modelo</th>
-            <th>Peso</th>
-            <th>Data</th>
-            <th>Combustivel</th>
+            <td>@item.Modelo</td>
+            <td>@item.Peso</td>
+            <td>@item.DataFabricacao.ToShortDateString()</td>
+            <td>@item.Combustivel</td>
+            <td>
+                <a asp-action="editar" asp-route-id="@item.Codigo">Editar</a> <!-- -->
+            </td>
+            <td>
+                <button onClick="codigo.value = @item.Codigo" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo">
+                    Abrir modal de demonstração
+                </button>
+            </td>
         </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Modelo</td>
-                <td>@item.Peso</td>
-                <td>@item.DataFabricacao</td>
-                <td>@item.Combustivel</td>
-            </tr>
-        }
-    </table>
+    }
+</table>
+<!-- Botão para acionar modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                Deseja excluir o veículo?
+                ...
+            </div>
+            <div class="modal-footer">
+                <form asp-action="excluir" method="post">
+                    <input type="hidden" id="codigo" name="id"/>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                    <button type="submit" class="btn btn-danger">Sim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
