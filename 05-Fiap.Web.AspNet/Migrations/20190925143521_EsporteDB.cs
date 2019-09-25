@@ -1,18 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace _05_Fiap.Web.AspNet.Migrations
 {
-    public partial class CampeonatoDb : Migration
+    public partial class EsporteDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "TreinadorId",
-                table: "Times",
-                nullable: false,
-                defaultValue: 0);
-
             migrationBuilder.CreateTable(
                 name: "Campeonatos",
                 columns: table => new
@@ -29,34 +24,6 @@ namespace _05_Fiap.Web.AspNet.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Jogadores",
-                columns: table => new
-                {
-                    JogadorId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(nullable: true),
-                    Altura = table.Column<float>(nullable: false),
-                    TimeId = table.Column<int>(nullable: false),
-                    JogadorId1 = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Jogadores", x => x.JogadorId);
-                    table.ForeignKey(
-                        name: "FK_Jogadores_Jogadores_JogadorId1",
-                        column: x => x.JogadorId1,
-                        principalTable: "Jogadores",
-                        principalColumn: "JogadorId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Jogadores_Times_TimeId",
-                        column: x => x.TimeId,
-                        principalTable: "Times",
-                        principalColumn: "TimeId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Treinadores",
                 columns: table => new
                 {
@@ -68,6 +35,28 @@ namespace _05_Fiap.Web.AspNet.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Treinadores", x => x.TreinadorId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Times",
+                columns: table => new
+                {
+                    TimeId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true),
+                    Mascote = table.Column<bool>(nullable: false),
+                    Esporte = table.Column<int>(nullable: false),
+                    TreinadorId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Times", x => x.TimeId);
+                    table.ForeignKey(
+                        name: "FK_Times_Treinadores_TreinadorId",
+                        column: x => x.TreinadorId,
+                        principalTable: "Treinadores",
+                        principalColumn: "TreinadorId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -94,10 +83,34 @@ namespace _05_Fiap.Web.AspNet.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Times_TreinadorId",
-                table: "Times",
-                column: "TreinadorId");
+            migrationBuilder.CreateTable(
+                name: "Jogadores",
+                columns: table => new
+                {
+                    JogadorId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(nullable: true),
+                    Altura = table.Column<float>(nullable: false),
+                    DataNascimento = table.Column<DateTime>(nullable: false),
+                    TimeId = table.Column<int>(nullable: false),
+                    JogadorId1 = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jogadores", x => x.JogadorId);
+                    table.ForeignKey(
+                        name: "FK_Jogadores_Jogadores_JogadorId1",
+                        column: x => x.JogadorId1,
+                        principalTable: "Jogadores",
+                        principalColumn: "JogadorId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Jogadores_Times_TimeId",
+                        column: x => x.TimeId,
+                        principalTable: "Times",
+                        principalColumn: "TimeId",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_CampeonatoTime_TimeId",
@@ -114,21 +127,14 @@ namespace _05_Fiap.Web.AspNet.Migrations
                 table: "Jogadores",
                 column: "TimeId");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Times_Treinadores_TreinadorId",
+            migrationBuilder.CreateIndex(
+                name: "IX_Times_TreinadorId",
                 table: "Times",
-                column: "TreinadorId",
-                principalTable: "Treinadores",
-                principalColumn: "TreinadorId",
-                onDelete: ReferentialAction.Cascade);
+                column: "TreinadorId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Times_Treinadores_TreinadorId",
-                table: "Times");
-
             migrationBuilder.DropTable(
                 name: "CampeonatoTime");
 
@@ -136,18 +142,13 @@ namespace _05_Fiap.Web.AspNet.Migrations
                 name: "Jogadores");
 
             migrationBuilder.DropTable(
-                name: "Treinadores");
-
-            migrationBuilder.DropTable(
                 name: "Campeonatos");
 
-            migrationBuilder.DropIndex(
-                name: "IX_Times_TreinadorId",
-                table: "Times");
+            migrationBuilder.DropTable(
+                name: "Times");
 
-            migrationBuilder.DropColumn(
-                name: "TreinadorId",
-                table: "Times");
+            migrationBuilder.DropTable(
+                name: "Treinadores");
         }
     }
 }

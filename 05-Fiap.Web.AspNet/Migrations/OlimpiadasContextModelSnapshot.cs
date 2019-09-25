@@ -57,6 +57,8 @@ namespace _05_Fiap.Web.AspNet.Migrations
 
                     b.Property<float>("Altura");
 
+                    b.Property<DateTime>("DataNascimento");
+
                     b.Property<int?>("JogadorId1");
 
                     b.Property<string>("Nome");
@@ -135,7 +137,7 @@ namespace _05_Fiap.Web.AspNet.Migrations
 
             modelBuilder.Entity("_05_Fiap.Web.AspNet.Models.Time", b =>
                 {
-                    b.HasOne("_05_Fiap.Web.AspNet.Models.Treinador", "tecnico")
+                    b.HasOne("_05_Fiap.Web.AspNet.Models.Treinador", "Tecnico")
                         .WithMany()
                         .HasForeignKey("TreinadorId")
                         .OnDelete(DeleteBehavior.Cascade);

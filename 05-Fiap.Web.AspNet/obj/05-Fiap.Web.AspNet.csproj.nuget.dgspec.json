@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj": {}
+    "C:\\Users\\logonrmlocal\\Desktop\\Enterprise-2-Semestre\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj": {}
   },
   "projects": {
-    "D:\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj": {
+    "C:\\Users\\logonrmlocal\\Desktop\\Enterprise-2-Semestre\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj",
+        "projectUniqueName": "C:\\Users\\logonrmlocal\\Desktop\\Enterprise-2-Semestre\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj",
         "projectName": "05-Fiap.Web.AspNet",
-        "projectPath": "D:\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj",
+        "projectPath": "C:\\Users\\logonrmlocal\\Desktop\\Enterprise-2-Semestre\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet.csproj",
         "packagesPath": "C:\\Users\\logonrmlocal\\.nuget\\packages\\",
-        "outputPath": "D:\\05-Fiap.Web.AspNet\\05-Fiap.Web.AspNet\\obj\\",
+        "outputPath": "C:\\Users\\logonrmlocal\\Desktop\\Enterprise-2-Semestre\\05-Fiap.Web.AspNet\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

@@ -10,8 +10,8 @@ using _05_Fiap.Web.AspNet.Persistences;
 namespace _05_Fiap.Web.AspNet.Migrations
 {
     [DbContext(typeof(OlimpiadasContext))]
-    [Migration("20190918134920_CampeonatoDb")]
-    partial class CampeonatoDb
+    [Migration("20190925143521_EsporteDB")]
+    partial class EsporteDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -58,6 +58,8 @@ namespace _05_Fiap.Web.AspNet.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<float>("Altura");
+
+                    b.Property<DateTime>("DataNascimento");
 
                     b.Property<int?>("JogadorId1");
 
@@ -137,7 +139,7 @@ namespace _05_Fiap.Web.AspNet.Migrations
 
             modelBuilder.Entity("_05_Fiap.Web.AspNet.Models.Time", b =>
                 {
-                    b.HasOne("_05_Fiap.Web.AspNet.Models.Treinador", "tecnico")
+                    b.HasOne("_05_Fiap.Web.AspNet.Models.Treinador", "Tecnico")
                         .WithMany()
                         .HasForeignKey("TreinadorId")
                         .OnDelete(DeleteBehavior.Cascade);

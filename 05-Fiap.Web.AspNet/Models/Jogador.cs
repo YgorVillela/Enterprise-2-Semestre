@@ -10,6 +10,7 @@ namespace _05_Fiap.Web.AspNet.Models
         public int JogadorId { get; set; }
         public string Nome { get; set; }
         public float Altura { get; set; }
+        public DateTime DataNascimento { get; set; }
 
         //Relacionamento
         public Time Time { get; set; }
